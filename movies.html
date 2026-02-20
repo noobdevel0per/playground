@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Scanner</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/component.css">
+    <link rel="stylesheet" href="./css/movies.css">
+
+    <script src="./js/movies.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="../index.html" class="logo glow"><-Back</a>
+        <div class="nav-links">
+            <a href="#" id="trendingBtn">Trending</a>
+        </div>
+    </nav>
+
+    <section class="movie-hero">
+        <h1 class="glow">what are you watching today?🍿</h1>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search movie...">
+            <button class="primary-btn" id="searchBtn">SCAN</button>
+            <button class="secondary-btn" id="clearBtn">CLEAR</button>
+        </div>
+    </section>
+
+    <section class="movies-grid" id="moviesGrid"></section>
+    <div class="modal" id="movieModal">
+        <div class="modal-close" id="closeModal">✕</div>
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
+</body>
+
+</html>

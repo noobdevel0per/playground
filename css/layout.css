@@ -1,0 +1,121 @@
+
+/* ================= MATRIX BACKGROUND ================= */
+
+#matrix {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 40px;
+
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid rgba(0, 255, 0, 0.25);
+    backdrop-filter: blur(8px);
+
+    z-index: 1000;
+}
+
+/* Prevent content hiding behind navbar */
+body {
+    padding-top: 80px;
+}
+
+/* Hide mobile toggle by default */
+.nav-left {
+    display: none;
+}
+
+.menu-toggle {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* ================= DESKTOP ================= */
+
+@media (min-width: 769px) {
+
+    .mobile-menu {
+        display: flex;
+        gap: 40px;
+    }
+
+    .mobile-menu a {
+        color: var(--primary);
+        text-decoration: none;
+        letter-spacing: 2px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    body {
+        padding-top: 70px;
+    }
+
+    .nav-left {
+        display: block;
+    }
+
+    .mobile-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        text-align: center;
+        border-top: 1px solid rgba(0,255,0,0.2);
+    }
+
+    .mobile-menu a {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(0,255,0,0.1);
+        text-decoration: none;
+        color: var(--primary);
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

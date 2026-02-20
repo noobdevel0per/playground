@@ -1,118 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Access Granted</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Interface</title>
 
-    <!-- Hacker Font -->
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            background: #000;
-            overflow: hidden;
-            font-family: 'Share Tech Mono', monospace;
-        }
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/component.css">
 
-        /* MATRIX CANVAS */
-        #matrix {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
+    <script>
+        document.documentElement.classList.add("js");
+    </script>
 
-
-        /* CENTER TEXT */
-        .container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
-
-        h1 {
-            color: #09ff00;
-            font-size: 30px;
-            letter-spacing: 12px;
-            font-weight: 400;
-            text-shadow:
-                0 0 10px #09ff00,
-                0 0 20px #09ff00,
-                0 0 40px #09ff00,
-                0 0 80px #09ff00;
-            animation: pulse 2s infinite alternate;
-        }
-
-        @keyframes pulse {
-            from {
-                text-shadow: 0 0 10px #09ff00;
-            }
-
-            to {
-                text-shadow: 0 0 40px #09ff00, 0 0 80px #09ff00;
-            }
-        }
-    </style>
+    <script src="js/matrix.js" defer></script>
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
 
     <canvas id="matrix"></canvas>
 
+    <a href="index.html" class="back-btn">←--</a>
 
-    <div class="container">
-        <h1>ACCESS GRANTED</h1>
+    <div class="center-wrapper">
+        <div class="main-box">
+
+            <div class="button-group">
+                <a href="movies.html" class="main-btn">Movie plans?🎞️</a>
+                <a href="shop.html" class="main-btn">Do you like cats?😼</a>
+            </div>
+            <p class="system-status"></p>
+
+        </div>
     </div>
-
-    <script>
-
-
-        /* ================= MATRIX ================= */
-
-        const matrix = document.getElementById("matrix");
-        const ctx = matrix.getContext("2d");
-
-        matrix.width = window.innerWidth;
-        matrix.height = window.innerHeight;
-
-        const letters = "01";
-        const fontSize = 18;
-        const columns = matrix.width / fontSize;
-
-        const drops = [];
-        for (let x = 0; x < columns; x++) {
-            drops[x] = 1;
-        }
-
-        function drawMatrix() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
-            ctx.fillRect(0, 0, matrix.width, matrix.height);
-
-            ctx.fillStyle = "#00ff66";
-            ctx.font = fontSize + "px monospace";
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = letters.charAt(Math.floor(Math.random() * letters.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > matrix.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-
-                drops[i]++;
-            }
-        }
-
-        setInterval(drawMatrix, 60);
-
-
-    </script>
+    <footer class="cyber-footer">
+    <div class="footer-inner">
+        <span class="footer-line"></span>
+        <p>© 2026 · Designed & Engineered by <span class="glow">Salil Chaudhary</span></p>
+    </div>
+</footer>
 
 </body>
 
